@@ -14,7 +14,7 @@ public class Location {
 
     //feed to Plant and Weather
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private String climateZone = null;
+    private String growthZone = null;
 
 
 }

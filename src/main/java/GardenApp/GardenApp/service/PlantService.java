@@ -1,11 +1,12 @@
 package GardenApp.GardenApp.service;
+
 import GardenApp.GardenApp.model.Location;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.sql.*;
 
-public class ZoneService {
+public class PlantService {
 
     @Id
     @GeneratedValue
@@ -14,35 +15,34 @@ public class ZoneService {
 //import from weather site/api per Location
 
     @Autowired
-    Location location;
-
-    @Column(nullable = false, unique = true)
-    private Integer zip;
+    Location Plant;
 
     @OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
     private Integer zone;
 
 //    private String sunType;
 
-    public static String getClimateZone(String zipCode) {
+    public static String getPlantSchedule(String schedule) {
 
         String growthZone = null;
-        
+
+        String plantSch = null;
+
         try {
             // Connect to the database
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/gardenDB", "root", "${PWEV}");
 
             // Prepare the SQL query
-            String sql = "SELECT growth_zone FROM Zip_to_Zone WHERE zip_code = ?";
+            String sql = "SELECT plant_sch FROM plant WHERE growth_zone = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, zipCode);
+            stmt.setString(1, plant);
 
             // Execute the query
             ResultSet rs = stmt.executeQuery();
 
             // Get the climate zone from the result set
             if (rs.next()) {
-                growthZone = rs.getString("growth_zone");
+                plantSch = rs.getString("growth_zone");
             }
 
             // Close the database connection and resources
@@ -54,7 +54,7 @@ public class ZoneService {
             e.printStackTrace();
         }
 
-        return growthZone;
+        return plantSch;
     }
 
 }
