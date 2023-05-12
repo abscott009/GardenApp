@@ -33,9 +33,9 @@ public class PlantService {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/gardenDB", "root", "${PWEV}");
 
             // Prepare the SQL query
-            String sql = "SELECT plant_sch FROM plant_by_zone WHERE growth_zone = ?";
+            String sql = "SELECT plant_sch FROM plant_by_zone WHERE growth_zone = ?, plant = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, plant);
+            stmt.setString(1, plantSch);
 
             // Execute the query
             ResultSet rs = stmt.executeQuery();
