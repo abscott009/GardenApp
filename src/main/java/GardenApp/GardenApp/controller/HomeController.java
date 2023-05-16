@@ -12,12 +12,12 @@ public class HomeController {
     }
 
     @GetMapping("/zone")
-    public String adminPage() {
+    public String zonePage() {
         return "/zone";
     }
 
     @GetMapping("/plant")
-    public String superUPage() {
+    public String plantSchPage() {
         return "/plant";
     }
 

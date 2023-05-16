@@ -3,6 +3,8 @@ import lombok.*;
 import java.sql.*;
 import javax.persistence.*;
 
+@Builder
+@Getter
 public class Location {
 
     @Id
@@ -12,9 +14,8 @@ public class Location {
     @Column(nullable = false, unique = true)
     private Integer zip;
 
-    //feed to Plant and Weather
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private String growthZone = null;
+    @Column(nullable = false)
+    private String hardinessZone = null;
 
 
 }

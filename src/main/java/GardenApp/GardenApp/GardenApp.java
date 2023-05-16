@@ -1,15 +1,26 @@
 package GardenApp.GardenApp;
 
+//import GardenApp.GardenApp.repository.VeggieRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import lombok.*;
 
 
 @SpringBootApplication
-public class GardenApp {
+public class GardenApp implements CommandLineRunner {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GardenApp.class, args);
+		SpringApplication.run(GardenApp.class);
 	}
 
+//	@Autowired
+//	VeggieRepo plantRepo;
+
+	@Override
+	public void run(String... args) throws Exception {
+
+
+
+	}
 }

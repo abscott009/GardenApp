@@ -15,12 +15,10 @@ public class PlantService {
 //import from weather site/api per Location
 
     @Autowired
-    Location Plant;
+    LocationService growthZone;
 
     @OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
     private Integer zone;
-
-//    private String sunType;
 
     public static String getPlantSchedule(String schedule) {
 

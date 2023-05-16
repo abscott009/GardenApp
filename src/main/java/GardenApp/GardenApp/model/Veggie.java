@@ -1,11 +1,10 @@
 package GardenApp.GardenApp.model;
-import GardenApp.GardenApp.model.Soil;
 import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-    @Table(name = "plants")
+    @Table(name = "plant")
     @Getter
     @Setter
     @NoArgsConstructor
@@ -13,22 +12,23 @@ import javax.persistence.*;
     @Builder
     @ToString
 
-public class Plant {
+public class Veggie {
+
 
         @Id
-        @GeneratedValue
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
         @Column(nullable = false, unique = true)
         private String name;
 
-        @OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
-        private Soil favoriteSoil;
-
-        private String sunType;
-
-        @Column(nullable = false)
-        private boolean fruitBearing;
+//        @ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
+//        private Location growthZone;
+//
+//        private String sunType;
+//
+//        @Column(nullable = false)
+//        private boolean fruitBearing;
 
  //       private Integer numDaysTillRipeFruit;
 
