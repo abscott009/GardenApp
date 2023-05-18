@@ -1,12 +1,11 @@
 package GardenApp.GardenApp.service;
 
-import GardenApp.GardenApp.model.Location;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.sql.*;
 
-public class PlantService {
+public class VeggieService {
 
     @Id
     @GeneratedValue
